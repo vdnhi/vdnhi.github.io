@@ -1,16 +1,32 @@
 package app
 
+import app.landing.Landing
+import app.resume.Resume
 import com.raquo.laminar.api.L._
-import org.scalajs.dom.document
+import io.frontroute._
+import org.scalajs.dom
 
 object Main {
 
-  private val app = div(
-    "Hello World"
-  )
+  private val app = {
+    div(
+      pathEnd {
+        Landing()()
+      },
+      path("resume") {
+        Resume()()
+      },
+      noneMatched {
+        div("Not found")
+      }
+    )
+  }
 
   def main(args: Array[String]): Unit = {
-    render(document.body, app)
+    render(
+      dom.document.getElementById("app-container"),
+      app
+    )
   }
 
 }

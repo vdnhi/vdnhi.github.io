@@ -7,9 +7,11 @@ object Config {
   def scalaVersion = "2.13.10"
   def scalaJSVersion = "1.11.0"
   def laminarVersion = "0.14.5"
+  def frontrouteVersion = "0.16.1"
 
   def jsDependencies = Agg(
-    ivy"com.raquo::laminar::$laminarVersion"
+    ivy"com.raquo::laminar::$laminarVersion",
+    ivy"io.frontroute::frontroute::$frontrouteVersion"
   )
 }
 
